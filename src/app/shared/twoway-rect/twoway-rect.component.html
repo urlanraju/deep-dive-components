@@ -1,0 +1,21 @@
+<div [style.width]="style.width+'px'" [style.height]="style.height+'px'" [style.background]="'blue'"></div>
+
+<button (click)="onWidthIncrease()" appButton>
+    <span>Width</span>
+    <span class="icon">{{'<>'}}</span>
+</button>
+<button style="margin-left: 5px;" (click)="onHeightIncrease()" appButton>
+    <span>Height</span>
+    <span class="icon">{{'^'}}</span>
+</button>
+<form class="form">
+    <app-input-control label="width">
+        <input type="number" name="width" name="width" [(ngModel)]="style.width" />
+    </app-input-control>
+    <p>
+        <app-input-control label="Height">
+            <input type="number" name="height" id="height" [(ngModel)]="style.height" rows="3" />
+        </app-input-control>
+    </p>
+
+</form>

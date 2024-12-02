@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Ticket } from '../ticket';
 
 @Component({
@@ -8,7 +8,18 @@ import { Ticket } from '../ticket';
   templateUrl: './ticket.component.html',
   styleUrl: './ticket.component.css'
 })
-export class TicketComponent {
+export class TicketComponent implements OnInit {
+
+@Output('on-ticket-close') onTicketClose  = new EventEmitter<number>();
+
+  ngOnInit(): void {
+    
+  }
   
   @Input("ticket") ticket! : Ticket;
+
+  onComplete(){
+    this.ticket.status = 'closed';
+    this.onTicketClose.emit(this.ticket.id);
+  }
 }

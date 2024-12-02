@@ -2,7 +2,7 @@
   <ul>
     <li *ngFor="let t of tickets; trackBy:trackBy">
       <!-- <span>{{t.title}}</span> , <span>{{t.request}}</span> , <span>{{t.status}}</span> -->
-       <app-ticket [ticket] = "t"></app-ticket>
+      <app-ticket (on-ticket-close)="updateTickets($event)" [ticket]="t"></app-ticket>
     </li>
   </ul>
 </div>

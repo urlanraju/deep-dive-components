@@ -1,10 +1,10 @@
-<form (ngSubmit)="onSubmit(titleRef.value,requestRef.value)" #form>
+<form (ngSubmit)="onSubmit()" #form>
   <app-input-control label="Title">
-    <input name="title" name="title" #titleRef #input/>
+    <input name="title" name="title" [(ngModel)]="ticket.title" #titleRef #input/>
   </app-input-control>
   <p>
     <app-input-control label="Request">
-      <textarea name="request" id="request" rows="3" #requestRef #input></textarea>
+      <textarea name="request" id="request" [(ngModel)]="ticket.request" rows="3" #requestRef #input></textarea>
     </app-input-control>
   </p>
   <p>

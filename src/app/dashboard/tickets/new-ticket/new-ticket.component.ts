@@ -15,14 +15,16 @@ export class NewTicketComponent {
 
   @Output('new-ticket') addNewTicket = new EventEmitter<Ticket>();
 
+  ticket: Ticket = { id: Math.random(), request: '', status: 'open', title: '' };
+
   constructor(@Inject(ElementRef) private el: ElementRef) {
 
   }
 
 
-  onSubmit(title: string, request: string) {
-    console.log(`Submitted data title :  ${title}, request : ${request}`);
-    this.addNewTicket.emit({id: Math.random(),request: request,title:title,status:'open'});
+  onSubmit() {
+    console.log(this.ticket);
+    this.addNewTicket.emit({...this.ticket});
     this.resetForm();
   }
 

@@ -13,15 +13,22 @@ import { TicketComponent } from "./ticket/ticket.component";
   styleUrl: './tickets.component.css'
 })
 export class TicketsComponent {
+  updateTickets(id: number) {
+    let index = this.tickets.findIndex(t => t.id == id);
+    if (index != -1) {
+      this.tickets[index].status = 'closed';
+      console.log('tivcket slosed');
+    }
+  }
 
   addNewTicket(ticket: Ticket) {
     this.tickets.push(ticket);
-}
+  }
 
-  tickets : Ticket[] = [];
+  tickets: Ticket[] = [];
 
-  trackBy(index:number, item:Ticket) {
+  trackBy(index: number, item: Ticket) {
     console.log(index);
     return item.id;
- }
+  }
 }
