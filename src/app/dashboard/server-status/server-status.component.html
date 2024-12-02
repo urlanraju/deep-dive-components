@@ -1,0 +1,19 @@
+<div [class]="currentStatus">
+  @if (currentStatus === 'status-online') {
+  <p>Servers are online</p>
+  <p>All systems are operational.</p>
+  } @else if (currentStatus === 'status-offline') {
+  <p>Servers are offline</p>
+  <p>Functionality should be restored soon.</p>
+  } @else {
+  <p>Server status is unknown</p>
+  <p>Fetching server status failed.</p>
+  }
+<div style="margin: 33px;">
+  <button appButton (click)="refreshStatus()">
+    <span>Refresh status</span>
+    <span class="icon"></span>
+  </button>
+</div>
+  
+</div>

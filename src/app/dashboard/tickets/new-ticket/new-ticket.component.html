@@ -1,0 +1,20 @@
+<form (ngSubmit)="onSubmit(titleRef.value,requestRef.value)" #form>
+  <app-input-control label="Title">
+    <input name="title" name="title" #titleRef #input/>
+  </app-input-control>
+  <p>
+    <app-input-control label="Request">
+      <textarea name="request" id="request" rows="3" #requestRef #input></textarea>
+    </app-input-control>
+  </p>
+  <p>
+    <button appButton>
+      <span>Submit</span>
+      <span class="icon">></span>
+    </button>
+    <button (click)="resetForm()" style="margin-left: 15px;" appButton>
+      <span>Reset</span>
+      <span class="icon">^</span>
+    </button>
+  </p>
+</form>
